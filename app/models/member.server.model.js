@@ -169,9 +169,7 @@ var MemberSchema = new Schema({
 		trim: true
 	},
 	allergies: {
-		type: Boolean,
-		default: '',
-		trim: true
+		type: Boolean
 	},
 	allergiesToMedicine: {
 		type: String,

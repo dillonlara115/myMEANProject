@@ -5,18 +5,289 @@
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="create()" novalidate>
             <fieldset>
-                <div class="form-group">
-                    <label class="control-label" for="name">Name</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" required>
+                <div class="row">
+                <div data-ng-show="error" class="text-center text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
+                    <div class="col-sm-6 text-center">
+                        <i class="glyphicon glyphicon-user member-profile" ng-class="{'text-primary': allergies, 'text-danger': !allergies}"></i>
+                        
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="firstName" class="control-label">First Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="firstName" id="firstName" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName" class="control-label">Last Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="lastName" id="lastName" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="dateOfBirth" class="control-label">Date of Birth</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="dateOfBirth" id="dateOfBirth" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="schoolAddress" class="control-label">School Address</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="schoolAddress" id="schoolAddress" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="apartmentNumber" class="control-label">Apartment Number</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="apartmentNumber" id="apartmentNumber" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="city" class="control-label">City</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="city" id="city" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="state" class="control-label">State</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="state" id="state" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="zipCode" class="control-label">Zip Code</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="zipCode" id="zipCode" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="primaryNumber" class="control-label">Primary Number</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="primaryNumber" id="primaryNumber" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="secondaryNumber" class="control-label">Secondary Number</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="secondaryNumber" id="secondaryNumber" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guardianFirstName" class="control-label">Guardian First Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="guardianFirstName" id="guardianFirstName" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guardianLastName" class="control-label">Guardian Last Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="guardianLastName" id="guardianLastName" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guardianAddress" class="control-label">Guardian Address</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="guardianAddress" id="guardianAddress" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guadianApartmentNumber" class="control-label">Guardian Apartment Number</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="guadianApartmentNumber" id="guadianApartmentNumber" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guardianCity" class="control-label">Guardian City</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="guardianCity" id="guardianCity" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guardianState" class="control-label">Guardian State</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="guardianState" id="guardianState" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guardianZipCode" class="control-label">Guardian Zip Code</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="guardianZipCode" id="guardianZipCode" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guardianPrimaryNumber" class="control-label">Guardian Primary Number</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="guardianPrimaryNumber" id="guardianPrimaryNumber" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guardianSecondaryNumber" class="control-label">Guardian Secondary Number<div class="controls">
+                                <input type="text" data-ng-model="guardianSecondaryNumber" id="guardianSecondaryNumber" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guardianTwoFirstName" class="control-label">Second Guardian First Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="guardianTwoFirstName" id="guardianTwoFirstName" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guardianTwoLastName" class="control-label">Second Guardian Last Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="guardianTwoLastName" id="guardianTwoLastName" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guardianTwoAddress" class="control-label">Second Guardian Address</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="guardianTwoAddress" id="guardianTwoAddress" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guadianTwoApartmentNumber" class="control-label">Second Guardian Apartment Number</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="guadianTwoApartmentNumber" id="guadianTwoApartmentNumber" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guardianTwoCity" class="control-label">Second Guardian City</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="guardianTwoCity" id="guardianTwoCity" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guardianTwoState" class="control-label">Second Guardian State</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="guardianTwoState" id="guardianTwoState" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guardianTwoZipCode" class="control-label">Second Guardian Zip Code</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="guardianTwoZipCode" id="guardianTwoZipCode" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guardianTwoPrimaryNumber" class="control-label">Second Guardian Primary Number</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="guardianTwoPrimaryNumber" id="guardianTwoPrimaryNumber" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guardianTwoSecondaryNumber" class="control-label">Second Guardian Secondary Number</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="guardianTwoSecondaryNumber" id="guardianTwoSecondaryNumber" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="carMake" class="control-label">Car Make</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="carMake" id="carMake" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="carModel" class="control-label">Car Model</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="carModel" id="carModel" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="carLicenseNumber" class="control-label">Car License Number</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="carLicenseNumber" id="carLicenseNumber" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="allergies" class="control-label">Allergies</label>
+                            <div class="controls">
+                                <input type="checkbox" data-ng-model="allergies" id="allergies" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="allergiesToMedicine" class="control-label">Allergies to Medicine</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="allergiesToMedicine" id="allergiesToMedicine" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="currentMedications" class="control-label">Current Medications</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="currentMedications" id="currentMedications" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="healthIssues" class="control-label">Health Issues</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="healthIssues" id="healthIssues" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="healthInsuranceProvider" class="control-label">Health Insurance Provider</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="healthInsuranceProvider" id="healthInsuranceProvider" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="healthInsuranceSubscriberName" class="control-label">Health Insurance Subscriber Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="healthInsuranceSubscriberName" id="healthInsuranceSubscriberName" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="healthInsuranceSubscriberEmployer" class="control-label">Health Insurance Subscriber Employer</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="healthInsuranceSubscriberEmployer" id="healthInsuranceSubscriberEmployer" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="healthInsurancePolicyNumber" class="control-label">Health Insurance Policy Number</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="healthInsurancePolicyNumber" id="healthInsurancePolicyNumber" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="healthInsurancePhoneNumber" class="control-label">Health Insurance Phone Number</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="healthInsurancePhoneNumber" id="healthInsurancePhoneNumber" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="autoInsuranceProvider" class="control-label">Auto Insurance Provider</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="autoInsuranceProvider" id="autoInsuranceProvider" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="autoInsuranceName" class="control-label">Auto Insurance Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="autoInsuranceName" id="autoInsuranceName" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="autoInsuranceEmployer" class="control-label">Auto Insurance Employer</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="autoInsuranceEmployer" id="autoInsuranceEmployer" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="autoInsurancePolicyNumber" class="control-label">Auto Insurance Policy Number</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="autoInsurancePolicyNumber" id="autoInsurancePolicyNumber" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="autoInsurancePhoneNumber" class="control-label">Auto Insurance Phone Number</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="autoInsurancePhoneNumber" id="autoInsurancePhoneNumber" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-lg btn-success">Save & Close</button>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <input type="submit" class="btn btn-default">
-                </div>
-				<div data-ng-show="error" class="text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
             </fieldset>
         </form>
     </div>
