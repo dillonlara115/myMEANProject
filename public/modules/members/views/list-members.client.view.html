@@ -1,10 +1,11 @@
-<section data-ng-controller="MembersController" data-ng-init="find()">
+<section data-ng-controller="MembersController as membersCtrl" >
     <div class="page-header">
         <h1>Members</h1>
     </div>
     <div class="list-group">
-        <a data-ng-repeat="member in members" data-ng-href="#!/members/{{member._id}}" class="list-group-item">
+        <a data-ng-repeat="member in membersCtrl.members" data-ng-href="#!/members/{{member._id}}" class="list-group-item">
 			<small class="list-group-item-text">
+                {{member.firstName}}
 				Posted on
 				<span data-ng-bind="member.created | date:'medium'"></span>
 				by
