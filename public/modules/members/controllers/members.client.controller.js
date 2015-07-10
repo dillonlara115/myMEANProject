@@ -3,14 +3,40 @@
 // Members controller
 var membersApp = angular.module('members');
 
-membersApp.controller('MembersController', ['$scope', '$stateParams', 'Authentication', 'Members',
-	function($scope, $stateParams, Authentication, Members) {
+membersApp.controller('MembersController', ['$scope', '$stateParams', 'Authentication', 'Members', '$modal', '$log',
+	function($scope, $stateParams, Authentication, Members, $modal, $log) {
 		this.authentication = Authentication;
 
 		// Find a list of Members
 		this.members = Members.query();
 		
-	}
+		$scope.animationsEnabled = true;
+		//open modal window to update single member record
+	  	$scope.open = function (size) {
+
+		    var modalInstance = $modal.open({
+		      animation: $scope.animationsEnabled,
+		      templateUrl: 'myModalContent.html',
+		      controller: 'ModalInstanceCtrl',
+		      size: size,
+		      resolve: {
+		        items: function () {
+		          return $scope.items;
+		        }
+		      }
+		    });
+
+		    modalInstance.result.then(function (selectedItem) {
+		      $scope.selected = selectedItem;
+		    }, function () {
+		      $log.info('Modal dismissed at: ' + new Date());
+		    });
+		  };
+
+		  $scope.toggleAnimation = function () {
+		    $scope.animationsEnabled = !$scope.animationsEnabled;
+		  };
+		}
 ]);
 
 membersApp.controller('MembersCreateController', ['$scope', 'Members',
