@@ -3,16 +3,23 @@
         <h1>Members</h1>
     </div>
     <div class="list-group">
-        <a data-ng-repeat="member in membersCtrl.members" data-ng-href="#!/members/{{member._id}}" class="list-group-item">
-			<small class="list-group-item-text">
-                {{member.firstName}}
-				Posted on
-				<span data-ng-bind="member.created | date:'medium'"></span>
-				by
-				<span data-ng-bind="member.user.displayName"></span>
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="member.name"></h4>
-        </a>
+        <div class="col-xs-6 col-sm-4" data-ng-repeat="member in membersCtrl.members">
+            <a data-ng-href="#!/members/{{member._id}}" class="list-group-item">
+                <h4 class="member-list">
+                    <i class="glyphicon glyphicon-user"></i>
+                </h4>
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <h4>{{member.firstName}} {{member.lastName}}</h4>
+                            <small class="list-group-item-text text-muted">
+                                <span data-ng-bind="member.created | date:'medium'"></span>
+                            </small>
+                    </div>
+                </div>
+                
+            </a>
+        </div>
+        
     </div>
     <div class="alert alert-warning text-center" data-ng-hide="!members.$resolved || members.length">
     	No Members yet, why don't you <a href="/#!/members/create">create one</a>?
