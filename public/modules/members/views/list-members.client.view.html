@@ -21,7 +21,7 @@
     <br><br>
     <div class="list-group">
         <div class="col-xs-6 col-sm-4" data-ng-repeat="member in membersCtrl.members | filter:searchText">
-            <a data-ng-href="#!/members/{{member._id}}" class="list-group-item">
+            <a ng-click="membersCtrl.modalUpdate('lg', member)" class="list-group-item">
                 <h4 class="member-list">
                     <i class="glyphicon glyphicon-user"></i>
                 </h4>
