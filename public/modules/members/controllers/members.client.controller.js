@@ -19,6 +19,14 @@ membersApp.controller('MembersController', ['$scope', '$stateParams', 'Authentic
 		      templateUrl: 'modules/members/views/edit-member.client.view.html',
 		      controller: function ($scope, $modalInstance, member) {
 		      	$scope.member = member;
+
+		      	  $scope.ok = function () {
+				    $modalInstance.close($scope.member);
+				  };
+
+				  $scope.cancel = function () {
+				    $modalInstance.dismiss('cancel');
+				  };
 		      },
 		      size: size,
 		      resolve: {
@@ -50,7 +58,15 @@ membersApp.controller('MembersCreateController', ['$scope', 'Members',
 
 membersApp.controller('MembersEditController', ['$scope', 'Members',
 	function($scope, Members) {
-		
+		// Update existing Member
+		this.update = function(updatedMember) {
+			var member = updatedMember;
+
+			member.$update(function() {
+			}, function(errorResponse) {
+				$scope.error = errorResponse.data.message;
+			});
+		};
 
 	}
 ]);
@@ -182,16 +198,7 @@ membersApp.controller('MembersEditController', ['$scope', 'Members',
 		// 	}
 		// };
 
-		// // Update existing Member
-		// $scope.update = function() {
-		// 	var member = $scope.member;
 
-		// 	member.$update(function() {
-		// 		$location.path('members/' + member._id);
-		// 	}, function(errorResponse) {
-		// 		$scope.error = errorResponse.data.message;
-		// 	});
-		// };
 
 
 
