@@ -21,7 +21,7 @@ membersApp.controller('MembersController', ['$scope', '$stateParams', 'Authentic
 		      	$scope.member = member;
 
 		      	  $scope.ok = function () {
-		      	  	if(memberUpdateForm.$valid){
+		      	  	if(updateMemberForm.$valid){
 		      	  		$modalInstance.close($scope.member);
 		      	  	}
 				    
@@ -74,6 +74,17 @@ membersApp.controller('MembersEditController', ['$scope', 'Members',
 	}
 ]);
 
+
+membersApp.directive('memberList', [function(){
+   return {
+   	restrict: 'E', 
+   	transclue: true,
+    templateUrl: 'modules/members/views/member-list-template.html',
+    link: function(scope, element, attrs){
+
+    }
+  };
+}]);
 		
 
 		// // Create new Member

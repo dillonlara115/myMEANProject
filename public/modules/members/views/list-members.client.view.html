@@ -19,26 +19,6 @@
         </div>
     </div>
     <br><br>
-    <div class="list-group">
-        <div class="col-xs-6 col-sm-4" data-ng-repeat="member in membersCtrl.members | filter:searchText">
-            <a ng-click="membersCtrl.modalUpdate('lg', member)" class="list-group-item">
-                <h4 class="member-list">
-                    <i class="glyphicon glyphicon-user"></i>
-                </h4>
-                <div class="row">
-                    <div class="col-xs-10 col-xs-offset-1">
-                        <h4>{{member.firstName}} {{member.lastName}}</h4>
-                            <small class="list-group-item-text text-muted">
-                                <span data-ng-bind="member.created | date:'medium'"></span>
-                            </small>
-                    </div>
-                </div>
-                
-            </a>
-        </div>
-        
-    </div>
-    <div class="alert alert-warning text-center" data-ng-hide="!members.$resolved || members.length">
-    	No Members yet, why don't you <a href="/#!/members/create">create one</a>?
-    </div>
+    <member-list></member-list>
+    
 </section>
