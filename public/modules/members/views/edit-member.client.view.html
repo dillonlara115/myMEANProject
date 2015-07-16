@@ -1,30 +1,30 @@
 <section data-ng-controller="MembersEditController as memberEditCtrl" >
 
         <div class="modal-header">
-            <h3 class="modal-title">Edit Member</h3>
+            <h3 class="modal-title">Update {{member.firstName}} {{member.lastName}}</h3>
         </div>
         <div class="modal-body">
-            <form>
+            <form name="updateMemberForm">
                 <fieldset>
                 <div class="row">
                 <div data-ng-show="error" class="text-center text-danger">
                     <strong data-ng-bind="error"></strong>
                 </div>
                     <div class="col-sm-6 text-center">
-                        <i class="glyphicon glyphicon-user member-profile" ng-class="{'text-primary': allergies, 'text-danger': !allergies}"></i>
+                        <i class="glyphicon glyphicon-user member-profile" ng-class="{'text-primary': member.allergies, 'text-danger': !member.allergies}"></i>
                         
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="firstName" class="control-label">First Name</label>
                             <div class="controls">
-                                <input type="text" data-ng-model="member.firstName" id="firstName" class="form-control">
+                                <input type="text" data-ng-model="member.firstName" id="firstName" class="form-control" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="lastName" class="control-label">Last Name</label>
                             <div class="controls">
-                                <input type="text" data-ng-model="member.lastName" id="lastName" class="form-control">
+                                <input type="text" data-ng-model="member.lastName" id="lastName" class="form-control" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -291,7 +291,7 @@
             </form>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-success" ng-click="memberEditCtrl.update(member); ok()">Update</button>
+            <button class="btn btn-success" ng-click="memberEditCtrl.update(member); ok()" ng-disabled="memberEditCtrl.$invalid">Update</button>
             <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
         </div>
 </section>

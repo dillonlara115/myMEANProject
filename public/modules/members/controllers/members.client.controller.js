@@ -21,7 +21,10 @@ membersApp.controller('MembersController', ['$scope', '$stateParams', 'Authentic
 		      	$scope.member = member;
 
 		      	  $scope.ok = function () {
-				    $modalInstance.close($scope.member);
+		      	  	if(memberUpdateForm.$valid){
+		      	  		$modalInstance.close($scope.member);
+		      	  	}
+				    
 				  };
 
 				  $scope.cancel = function () {
