@@ -3,7 +3,7 @@
 // Members controller
 var membersApp = angular.module('members');
 
-membersApp.controller('MembersController', ['$scope', '$stateParams', 'Authentication', 'Members', '$modal', '$log',]
+membersApp.controller('MembersController', ['$scope', '$stateParams', 'Authentication', 'Members', '$modal', '$log',
 	function($scope, $stateParams, Authentication, Members, $modal, $log) {
 		this.authentication = Authentication;
 
@@ -21,12 +21,11 @@ membersApp.controller('MembersController', ['$scope', '$stateParams', 'Authentic
 		      templateUrl: 'modules/members/views/create-member.client.view.html',
 		      controller: function ($scope, $modalInstance) {
 
-		      	  $scope.ok = function () {
-		      	  	if(createMemberForm.$valid){
-		      	  		$modalInstance.close();
-		      	  	}
-				    
-				  };
+		      	$scope.ok = function (isValid) {
+					if (isValid) { 
+						$modalInstance.close();
+					}
+				};
 
 				  $scope.cancel = function () {
 				    $modalInstance.dismiss('cancel');
@@ -56,12 +55,12 @@ membersApp.controller('MembersController', ['$scope', '$stateParams', 'Authentic
 		      controller: function ($scope, $modalInstance, member) {
 		      	$scope.member = member;
 
-		      	  $scope.ok = function () {
-		      	  	if(updateMemberForm.$valid){
-		      	  		$modalInstance.close($scope.member);
-		      	  	}
-				    
-				  };
+	
+			    $scope.ok = function (isValid) {
+					if (isValid) {
+						$modalInstance.close();
+					}
+				};
 
 				  $scope.cancel = function () {
 				    $modalInstance.dismiss('cancel');
@@ -85,7 +84,24 @@ membersApp.controller('MembersController', ['$scope', '$stateParams', 'Authentic
 		  $scope.toggleAnimation = function () {
 		    $scope.animationsEnabled = !$scope.animationsEnabled;
 		  };
-		}
+
+		  		// Remove existing Member
+		this.remove = function(member) {
+			if ( member ) { 
+				member.$remove();
+
+				for (var i in this.members) {
+					if (this.members [i] === member) {
+						this.members.splice(i, 1);
+					}
+				}
+			} else {
+				this.member.$remove(function() {
+					
+				});
+			}
+		};
+	}
 ]);
 
 membersApp.controller('MembersCreateController', ['$scope', 'Members',
@@ -230,30 +246,4 @@ membersApp.directive('memberList', [function(){
 
 		
 
-		// // Remove existing Member
-		// $scope.remove = function(member) {
-		// 	if ( member ) { 
-		// 		member.$remove();
 
-		// 		for (var i in $scope.members) {
-		// 			if ($scope.members [i] === member) {
-		// 				$scope.members.splice(i, 1);
-		// 			}
-		// 		}
-		// 	} else {
-		// 		$scope.member.$remove(function() {
-		// 			$location.path('members');
-		// 		});
-		// 	}
-		// };
-
-
-
-
-
-		// // Find existing Member
-		// $scope.findOne = function() {
-		// 	$scope.member = Members.get({ 
-		// 		memberId: $stateParams.memberId
-		// 	});
-		// };
