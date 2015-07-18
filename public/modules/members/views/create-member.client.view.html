@@ -1,17 +1,16 @@
-<section data-ng-controller="MembersController">
-    <div class="page-header">
-        <h1>New Member</h1>
+<section data-ng-controller="MembersCreateController  as memberCreateCtrl" >
+    <div class="modal-header">
+        <h3 class="modal-title">New Member</h3>
     </div>
-    <div class="col-md-12">
-        <form class="form-horizontal" data-ng-submit="create()" novalidate>
+    <div class="modal-body">
+        <form name="createMemberForm"> 
             <fieldset>
                 <div class="row">
-                <div data-ng-show="error" class="text-center text-danger">
-                    <strong data-ng-bind="error"></strong>
-                </div>
+                    <div data-ng-show="error" class="text-center text-danger">
+                        <strong data-ng-bind="error"></strong>
+                    </div>
                     <div class="col-sm-6 text-center">
-                        <i class="glyphicon glyphicon-user member-profile" ng-class="{'text-primary': allergies, 'text-danger': !allergies}"></i>
-                        
+                        <i class="glyphicon glyphicon-user member-profile" ng-class="{'text-primary': allergies, 'text-danger': !allergies}"></i> 
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
@@ -283,12 +282,14 @@
                                 <input type="text" data-ng-model="autoInsurancePhoneNumber" id="autoInsurancePhoneNumber" class="form-control">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-lg btn-success">Save & Close</button>
-                        </div>
+                        
                     </div>
                 </div>
             </fieldset>
         </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success" ng-click="memberCreateCtrl.create(); ok()" ng-disabled="createMemberForm.$invalid">Save & Close</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
     </div>
 </section>
