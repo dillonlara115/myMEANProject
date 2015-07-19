@@ -92,9 +92,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="guadianApartmentNumber" class="control-label">Guardian Apartment Number</label>
+                            <label for="guardianApartmentNumber" class="control-label">Guardian Apartment Number</label>
                             <div class="controls">
-                                <input type="text" data-ng-model="memberCreateCtrl.guadianApartmentNumber" id="guadianApartmentNumber" class="form-control">
+                                <input type="text" data-ng-model="memberCreateCtrl.guardianApartmentNumber" id="guardianApartmentNumber" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
@@ -145,9 +145,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="guadianTwoApartmentNumber" class="control-label">Second Guardian Apartment Number</label>
+                            <label for="guardianTwoApartmentNumber" class="control-label">Second Guardian Apartment Number</label>
                             <div class="controls">
-                                <input type="text" data-ng-model="memberCreateCtrl.guadianTwoApartmentNumber" id="guadianTwoApartmentNumber" class="form-control">
+                                <input type="text" data-ng-model="memberCreateCtrl.guardianTwoApartmentNumber" id="guardianTwoApartmentNumber" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
@@ -289,7 +289,7 @@
         </form>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-success" ng-click="ok(createMemberForm.$valid)" ng-disabled="createMemberForm.$invalid">Save & Close</button>
+        <button class="btn btn-success" ng-click="memberCreateCtrl.create(); ok()" ng-disabled="createMemberForm.$invalid">Save & Close</button>
         <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
     </div>
 </section>

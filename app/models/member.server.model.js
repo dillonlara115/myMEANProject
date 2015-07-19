@@ -13,19 +13,18 @@ var MemberSchema = new Schema({
 	firstName: {
 		type: String,
 		default: '',
-		required: 'Please fill Member name',
+		required: 'Please fill Member first name',
 		trim: true
 	},
 	lastName: {
 		type: String,
 		default: '',
-		required: 'Please fill Member name',
+		required: 'Please fill Member last name',
 		trim: true
 	},
 	dateOfBirth: {
 		type: String,
 		default: '',
-		required: 'Please fill Member name',
 		trim: true
 	},
 	schoolAddress: {
@@ -78,7 +77,7 @@ var MemberSchema = new Schema({
 		default: '',
 		trim: true
 	},
-	guadianApartmentNumber: {
+	guardianApartmentNumber: {
 		type: String,
 		default: '',
 		trim: true
@@ -123,7 +122,7 @@ var MemberSchema = new Schema({
 		default: '',
 		trim: true
 	},
-	guadianTwoApartmentNumber: {
+	guardianTwoApartmentNumber: {
 		type: String,
 		default: '',
 		trim: true

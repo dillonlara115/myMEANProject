@@ -21,11 +21,12 @@ membersApp.controller('MembersController', ['$scope', '$stateParams', 'Authentic
 		      templateUrl: 'modules/members/views/create-member.client.view.html',
 		      controller: function ($scope, $modalInstance) {
 
-		      	$scope.ok = function (isValid) {
-					if (isValid) { 
-						$modalInstance.close();
-					}
-				};
+		      	  $scope.ok = function () {
+		      	  	
+		      	  		$modalInstance.close();
+		      	  	
+				    
+				  };
 
 				  $scope.cancel = function () {
 				    $modalInstance.dismiss('cancel');
@@ -55,12 +56,12 @@ membersApp.controller('MembersController', ['$scope', '$stateParams', 'Authentic
 		      controller: function ($scope, $modalInstance, member) {
 		      	$scope.member = member;
 
-	
-			    $scope.ok = function (isValid) {
-					if (isValid) {
-						$modalInstance.close();
-					}
-				};
+		      	  $scope.ok = function () {
+		      	  	
+		      	  		$modalInstance.close($scope.member);
+		      	  	
+				    
+				  };
 
 				  $scope.cancel = function () {
 				    $modalInstance.dismiss('cancel');
@@ -84,8 +85,7 @@ membersApp.controller('MembersController', ['$scope', '$stateParams', 'Authentic
 		  $scope.toggleAnimation = function () {
 		    $scope.animationsEnabled = !$scope.animationsEnabled;
 		  };
-
-		  		// Remove existing Member
+  		// Remove existing Member
 		this.remove = function(member) {
 			if ( member ) { 
 				member.$remove();
@@ -97,11 +97,10 @@ membersApp.controller('MembersController', ['$scope', '$stateParams', 'Authentic
 				}
 			} else {
 				this.member.$remove(function() {
-					
 				});
 			}
 		};
-	}
+		}
 ]);
 
 membersApp.controller('MembersCreateController', ['$scope', 'Members',
@@ -176,7 +175,7 @@ membersApp.controller('MembersCreateController', ['$scope', 'Members',
 				$scope.guardianFirstName = '';
 				$scope.guardianLastName = '';
 				$scope.guardianAddress = '';
-				$scope.guadianApartmentNumber = '';
+				$scope.guardianApartmentNumber = '';
 				$scope.guardianCity = '';
 				$scope.guardianState = '';
 				$scope.guardianZipCode = '';
@@ -185,7 +184,7 @@ membersApp.controller('MembersCreateController', ['$scope', 'Members',
 				$scope.guardianTwoFirstName = '';
 				$scope.guardianTwoLastName = '';
 				$scope.guardianTwoAddress = '';
-				$scope.guadianTwoApartmentNumber = '';
+				$scope.guardianTwoApartmentNumber = '';
 				$scope.guardianTwoCity = '';
 				$scope.guardianTwoState = '';
 				$scope.guardianTwoZipCode = '';
@@ -218,6 +217,7 @@ membersApp.controller('MembersCreateController', ['$scope', 'Members',
 
 membersApp.controller('MembersEditController', ['$scope', 'Members',
 	function($scope, Members) {
+		$scope.form = {};
 		// Update existing Member
 		this.update = function(updatedMember) {
 			var member = updatedMember;
@@ -247,3 +247,14 @@ membersApp.directive('memberList', [function(){
 		
 
 
+
+
+
+
+
+		// // Find existing Member
+		// $scope.findOne = function() {
+		// 	$scope.member = Members.get({ 
+		// 		memberId: $stateParams.memberId
+		// 	});
+		// };

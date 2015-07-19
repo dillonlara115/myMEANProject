@@ -94,9 +94,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="guadianApartmentNumber" class="control-label">Guardian Apartment Number</label>
+                            <label for="guardianApartmentNumber" class="control-label">Guardian Apartment Number</label>
                             <div class="controls">
-                                <input type="text" data-ng-model="member.guadianApartmentNumber" id="guadianApartmentNumber" class="form-control">
+                                <input type="text" data-ng-model="member.guardianApartmentNumber" id="guardianApartmentNumber" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
@@ -147,9 +147,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="guadianTwoApartmentNumber" class="control-label">Second Guardian Apartment Number</label>
+                            <label for="guardianTwoApartmentNumber" class="control-label">Second Guardian Apartment Number</label>
                             <div class="controls">
-                                <input type="text" data-ng-model="member.guadianTwoApartmentNumber" id="guadianTwoApartmentNumber" class="form-control">
+                                <input type="text" data-ng-model="member.guardianTwoApartmentNumber" id="guardianTwoApartmentNumber" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
@@ -291,7 +291,7 @@
             </form>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-success" ng-click="ok(updateMemberForm.$valid)" ng-disabled="updateMemberForm.$invalid">Update</button>
+            <button class="btn btn-success" ng-click="memberEditCtrl.update(member); ok()" ng-disabled="updateMemberForm.$invalid">Update</button>
             <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
         </div>
 </section>
